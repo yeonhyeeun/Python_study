@@ -3,6 +3,7 @@ import os
 
 #get은 웹사이트를 받아오는 형식이다
 from requests import get
+from bs4 import BeautifulSoup
 
 base_url = "https://weworkremotely.com/remote-jobs/search?utf8=%E2%9C%93&term="
 
@@ -17,3 +18,4 @@ else:
     #print(response.text)
     soup = BeautifulSoup(response.text, "html.parser")
     jobs = soup.find_all('section', class_="jobs")
+    #print(jobs)
