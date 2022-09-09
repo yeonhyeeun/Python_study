@@ -14,4 +14,6 @@ if response.status_code != 200:
     print("Can't request website")
 else:
     #.text는 해당 웹사이트를 구성하고있는 html을 받아온다
-    print(response.text)
+    #print(response.text)
+    soup = BeautifulSoup(response.text, "html.parser")
+    jobs = soup.find_all('section', class_="jobs")
